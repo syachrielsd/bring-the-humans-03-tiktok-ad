@@ -206,3 +206,38 @@ unchanged (above).
 
 **Post v4, not v1, v2 or v3.** All earlier cuts stay in the build
 folder and must not be posted.
+
+## V5 — voice + music fix (23 Nov, supersedes v4)
+
+The user rejected v4's audio (23 Nov 13:20 WIB): "Gada suara ai cowo
+nya sama music nya kurang cocok cari yg lain" — no male voice, and the
+music doesn't fit. V5 (`ad-final-v5.mp4`, 1080×1920, 29.4s, 2.9 MB)
+keeps v4's animation, steps, script, badge and end card EXACTLY
+(frame-compared pixel-identical to v4) and changes only the audio:
+
+- **Voice — genuinely male this time.** V4's failure: rubberband's
+  default formant=preserved dropped the pitch but kept the female
+  formants, so it still read as a woman. Routes tried: Piper
+  id_ID-news_tts-medium (measured fundamental ~250–280 Hz — that model
+  is a female voice, rejected on measurement); edge-tts
+  id-ID-ArdiNeural (still TLS-walled by the VM proxy, rejected). Winner:
+  Google id TTS through rubberband pitch 0.52 with **formant=shifted**
+  (pitch AND formants move down together) + chest-band EQ, each segment
+  atempo-fitted to the exact v4 duration so every beat lands unchanged.
+  Measured median F0: **132 Hz** overall (segments 120–141 Hz).
+- **Music — new track, opposite style.** Bright C-major 108 BPM
+  tutorial/FYP backing: marimba arpeggios over a C–G–Am–F loop,
+  ukulele-style offbeat strums, soft kick/hats/shaker, bouncy octave-hop
+  bass, pentatonic marimba answers in the voice gaps. Fully synthesized,
+  original. The beat-locked SFX (typing clicks, reveal pop, CTA whoosh)
+  stay at v4's times.
+
+QA on the final encode: frames pixel-identical to v4 at 0.1s / 12.0s /
+28.5s (badge, animation, end card untouched); all 8 voice segments
+present at even level (RMS ≈ 0.08–0.09) on their v4 beats; music
+clearly audible in the gaps and under the end card; end card last 2.5s
+with 72mse6nm legible. Caption unchanged (above). Build:
+work/voice5.py, work/synth5.py, work/assemble5.py.
+
+**Post v5, not v1, v2, v3 or v4.** All earlier cuts stay in the build
+folder and must not be posted.
