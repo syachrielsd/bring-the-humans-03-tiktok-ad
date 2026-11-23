@@ -74,6 +74,35 @@ comes from the press pack; the name is written make.fun, lowercase, always.
 It carries `$500 bounty` and make.fun written out (the bounty's own line),
 plus the account's play code `makefun-apple-dawn-dew` as it stands.
 
+## V2 — the animated cut (23 Nov, supersedes the v1 stills cut)
+
+The user reviewed v1 and asked for a cartoon: "bikin kaya animasi gitu
+terus ada suara ai ngomong" — 2D animation with an AI voice talking.
+So v2 (`ad-final-v2.mp4`, 1080×1920, 29.9s) keeps this concept, script
+beats and caption word-for-word, and changes only the medium:
+
+- **2D animation, frame by frame at 24 fps** (work/anim.py): the press
+  pack's ghost mascot is the character and it moves in every beat — it
+  slides in and blinks at the boss's chat, watches the reply type
+  itself out, hops at the "GW AI." punch, types at the laptop while
+  the terminal fills line by line, shakes its head over the tease,
+  celebrates the reveal, then panics (shake + sweat drops) at the
+  deadline while the views counter ticks to 9.999 and past it. Chat
+  bubbles pop with back-easing, the target panel slides up, confetti
+  falls over the trophy pile at the CTA.
+- **An AI voice narrates it in Indonesian**, first person, over the
+  whole story (work/voice.py): a flat robotic TTS voice — the
+  character's own voice — timed beat by beat, over the same original
+  synthesized music, ducked under the speech (work/synth2.py,
+  work/assemble2.sh). Hook text and key captions stay on screen as
+  support.
+- Brand rules unchanged: press-pack badge as-is from frame 0 until
+  the end card; the press pack's own card closes the last 2.5s with
+  referral code 72mse6nm typed into its field.
+
+**Post v2, not v1.** v1 (`ad-final.mp4`) stays in the build folder as
+the earlier cut and must not be posted.
+
 ## The entry program
 
 `main.ts` copies this repository's `VIDEO.json` to the output directory —
