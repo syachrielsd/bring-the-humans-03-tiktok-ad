@@ -241,3 +241,44 @@ work/voice5.py, work/synth5.py, work/assemble5.py.
 
 **Post v5, not v1, v2, v3 or v4.** All earlier cuts stay in the build
 folder and must not be posted.
+
+## V6 — ElevenLabs voice + animation rebuilt on the real voice (23 Nov, supersedes v5)
+
+The user set the flow himself: write the full script with TTS tags,
+convert it with ElevenLabs, then build the animation from the resulting
+MP3. V6 (`ad-final-v6.mp4`, 1080×1920, 30fps, **42.0s**, 4.3 MB) does
+exactly that. The script lives in NASKAH-V6-ELEVENLABS.md (7 segments,
+ElevenLabs v3 audio tags).
+
+- **Voice — real ElevenLabs.** Voice **Charlie** (premade young male,
+  energetic), model **eleven_v3**, tags kept in the text as acting
+  directions. Segment 1 was the sanity check: measured median F0
+  **115.1 Hz** — a man's voice, verified by measurement. The registered
+  API key is permission-restricted (user/voices reads return 401
+  missing_permissions; text-to-speech works), so the voice was picked
+  from the standard premade set. Raw takes ran 53.5s (v3 ignores the
+  speed setting), so the shipped segments are the first takes with
+  silences compressed (gaps capped at 0.30s) plus atempo 1.2× → voice
+  total **38.62s** (work/voice6/timings.json).
+- **Duration, stated plainly: 42.0s, not ~30s.** The approved 84-word
+  script cannot be spoken intelligibly in 27.5s of voice; forcing 30s
+  would have meant ~1.8× crushing and wrecked the very voice the user
+  asked for. The build followed the voice.
+- **Animation — rebuilt on the real timings, smoother.** Same stickman
+  tutorial design as v4/v5, re-rendered at **30fps** with every scene
+  re-timed to the measured segment durations (work/vo6/beats6.json) and
+  pose cross-blending (hands, bob, leg swing, panic shake lerped over
+  0.18–0.22s at every pose change). QA frame-diff over the panic
+  window: min 0.01 / max 1.17 / mean 0.45, zero frozen frames.
+- **Music** — v5's bright marimba/ukulele track recipe (work/synth6.py),
+  ducked under the voice; the end card plays music only.
+
+QA on the final encode: voice present at every segment start in the
+mix (RMS 0.079–0.095, synced to its scene); badge verified on frame 0
+and throughout until the card; end card last 2.5s with 72mse6nm
+legible (visually verified); subtitles mirror the v6 script. Caption
+unchanged (above). Build: work/voice6/, work/anim6.py, work/synth6.py,
+work/assemble6.py.
+
+**Post v6, not v1, v2, v3, v4 or v5.** All earlier cuts stay in the
+build folder and must not be posted.
